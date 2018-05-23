@@ -41,7 +41,7 @@ function lowerdeps(name, imp)
 
     allowed_types = ["js", "css", "html"]
 
-    if !any(endswith.((url,), allowed_type))
+    if !any(endswith.((url,), allowed_types))
         error("WebIO can't load dependency of unknown type $url")
     end
 
