@@ -41,12 +41,12 @@ function lowerdeps(name, imp)
 
     allowed_types = ["js", "css", "html"]
 
-    if !any(endswith.((url,), allowed_types))
+    if !any(endswith.((imp_path,), allowed_types))
         error("WebIO can't load dependency of unknown type $url")
     end
 
     return Dict{String,Any}(
-        "type" => cur_type,
+        "type" => split(imp_path, ".")[end],
         "name" => name,
         "url" => url
     )
